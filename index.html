@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acordion</title>
+</head>
+
+<body>
+    <main>
+        <ul>
+            <li>
+                <span>+</span> item1
+                <ul>
+                    <li>
+                        Novo 1
+                    </li>
+                    <li>
+                        Novo 2
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span>+</span> item2
+                <ul>
+                    <li>
+                        Novo 1
+                    </li>
+                    <li>
+                        Novo 2
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <style>
+            ul li ul {
+                display: none;
+            }
+        </style>
+        <script>
+            let elements = document.querySelectorAll('span');
+
+            elements.forEach((item) => {
+                item.addEventListener('click', function(e){
+                    console.log("Foi");
+
+                    let estado = this.parentNode.querySelector('ul').style.display;
+
+                    if(estado == 'block'){
+                        this.parentNode.querySelector('ul').style.display="none";
+                        this.innerHTML = "+";
+                    }
+                    else{
+                        this.parentNode.querySelector('ul').style.display="block";
+                        this.innerHTML = "-";
+                    }
+                })
+            });
+        </script>
+    </main>
+</body>
+</html>
